@@ -21,7 +21,7 @@ function unzip-all-to-new() {
 
 #alias ls='ls --color=auto'
 #alias la='ls -la'
-alias ls=' eza --color=auto'
+alias ls=' eza --color=auto --icons always'
 alias la='eza -la'
 alias ip='ip --color'
 alias ..='cd ..'
@@ -41,3 +41,5 @@ alias grep="batgrep"
 PS1='[\u@\h \W]\$ '
 
 export BAT_THEME="Monokai Extended"
+export TERM=kitty
+export EDITOR=nvim
