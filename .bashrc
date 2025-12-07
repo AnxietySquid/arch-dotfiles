@@ -21,18 +21,12 @@ function unzip-all-to-new() {
 
 #alias ls='ls --color=auto'
 #alias la='ls -la'
-alias ls=' eza --color=auto --icons always'
-alias la='eza -la'
+alias ls='eza --color=auto --icons always'
+alias la='eza --color=auto --icons always -la'
 alias ip='ip --color'
 alias ..='cd ..'
 #alias grep='grep --color=auto'
-alias figlet-larry3d='figlet -d ~/Documents/figlet-fonts/ -f larry3d'
-alias starwars-telnet='telnet towel.blinkenlights.nl'
-alias mount-android-mtp='jmtpfs ~/mnt'
-alias astroterm='/home/anxiety/git_clones/astroterm/astroterm-linux-x86_64'
 alias wtf='wtf -o'
-alias radeontop='radeontop -c'
-alias icat="kitten icat"
 # Install bat and bat-extras
 alias cat="bat"
 alias man="batman"
