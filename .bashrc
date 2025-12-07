@@ -41,6 +41,3 @@ alias grep="batgrep"
 PS1='[\u@\h \W]\$ '
 
 export BAT_THEME="Monokai Extended"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
