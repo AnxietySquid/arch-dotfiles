@@ -757,6 +757,8 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'black', -- Used to format Python code
         'pyright', -- type checker for Python code
+        'prettier',
+        'markdownlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -811,6 +813,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
+        markdown = { 'prettier' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
