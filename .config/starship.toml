@@ -1,17 +1,19 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
+
+palette = "earth"
 
 format = """
-[](surface0)\
-$os\
+[](fg:ink)\
+[🌑](bg:ink fg:ink)\
 $username\
-[](bg:red fg:surface0)\
+[](bg:wood fg:ink)\
 $hostname\
-[](bg:peach fg:red)\
+[](bg:sand fg:wood)\
 $directory\
-[](fg:peach bg:green)\
+[](fg:sand bg:stone)\
 $git_branch\
 $git_status\
-[](fg:green bg:teal)\
+[](fg:stone bg:wood)\
 $c\
 $rust\
 $golang\
@@ -21,55 +23,27 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:teal bg:blue)\
+[](fg:wood bg:sand)\
 $docker_context\
-[](fg:blue bg:purple)\
+[](fg:sand bg:ink)\
 $time\
-[ ](fg:purple)\
-$line_break$character"""
+[ ](fg:ink)\
+$line_break$character
+"""
 
-palette = 'catppuccin_mocha'
+# ─────────────────────────────
+# Palette
+# ─────────────────────────────
+[palettes.earth]
+paper = "#E7EDF0"
+ink   = "#2F170F"
+sand  = "#8A6E60"
+wood  = "#754E3B"
+stone = "#846C62"
 
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
-
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-orange = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
-
+# ─────────────────────────────
+# OS
+# ─────────────────────────────
 [os]
 disabled = false
 style = "bg:surface0 fg:text"
@@ -77,6 +51,7 @@ style = "bg:surface0 fg:text"
 [os.symbols]
 Windows = "󰍲"
 Ubuntu = "󰕈"
+CachyOS = "🎗️ "
 SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
@@ -95,20 +70,26 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
+# ─────────────────────────────
+# Username / Host
+# ─────────────────────────────
 [username]
 show_always = true
-style_user = "bg:surface0 fg:text"
-style_root = "bg:surface0 fg:text"
-format = '[ $user]($style)'
+style_user = "bg:ink fg:paper"
+style_root = "bg:ink fg:paper"
+format = "[ $user]($style)"
 
 [hostname]
 ssh_only = false
-ssh_symbol = 'Ö'
-format = '[🐧$ssh_symbol$hostname]($style)'
-style = "bg:red fg:black"
+ssh_symbol = "Ö"
+format = "[🐧$ssh_symbol$hostname]($style)"
+style = "bg:wood fg:paper"
 
+# ─────────────────────────────
+# Directory
+# ─────────────────────────────
 [directory]
-style = "fg:mantle bg:peach"
+style = "fg:ink bg:sand"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -120,79 +101,88 @@ truncation_symbol = "…/"
 "Pictures" = " "
 "Developer" = "󰲋 "
 
+# ─────────────────────────────
+# Git
+# ─────────────────────────────
 [git_branch]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
+style = "bg:stone"
+format = '[[ $symbol $branch ](fg:paper bg:stone)]($style)'
 
 [git_status]
-style = "bg:teal"
-format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
+style = "bg:stone"
+format = '[[($all_status$ahead_behind )](fg:paper bg:stone)]($style)'
 
+# ─────────────────────────────
+# Languages
+# ─────────────────────────────
 [nodejs]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [c]
 symbol = " "
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [php]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [java]
 symbol = " "
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
 [python]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:wood"
+format = '[[ $symbol( $version) ](fg:paper bg:wood)]($style)'
 
+# ─────────────────────────────
+# Docker
+# ─────────────────────────────
 [docker_context]
 symbol = ""
-style = "bg:mantle"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+style = "bg:sand"
+format = '[[ $symbol( $context) ](fg:ink bg:sand)]($style)'
 
+# ─────────────────────────────
+# Time
+# ─────────────────────────────
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:peach"
-format = '[[  $time ](fg:mantle bg:purple)]($style)'
+style = "bg:ink"
+format = '[[  $time ](fg:paper bg:ink)]($style)'
 
-[line_break]
-disabled = false
-
+# ─────────────────────────────
+# Prompt
+# ─────────────────────────────
 [character]
-disabled = false
-success_symbol = '[](bold fg:green)'
-error_symbol = '[](bold fg:red)'
-vimcmd_symbol = '[](bold fg:creen)'
-vimcmd_replace_one_symbol = '[](bold fg:purple)'
-vimcmd_replace_symbol = '[](bold fg:purple)'
-vimcmd_visual_symbol = '[](bold fg:lavender)'
+success_symbol = "[](bold fg:sand)"
+error_symbol   = "[](bold fg:wood)"
+vimcmd_symbol  = "[](bold fg:stone)"
+

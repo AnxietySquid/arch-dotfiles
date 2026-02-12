@@ -10,7 +10,7 @@
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Base2Tone Lavender Dark
 include current-theme.conf
 # END_KITTY_THEME
 #
@@ -21,7 +21,7 @@ include current-theme.conf
 
 font_size 18
 
-background_opacity 0.9
+background_opacity 0.85
 
 
 
@@ -564,7 +564,7 @@ cursor_trail 1
 #: specified using backslash escapes, to specify a backslash use a
 #: double backslash.
 
-# show_hyperlink_targets no
+show_hyperlink_targets yes
 
 #: When the mouse hovers over a terminal hyperlink, show the actual
 #: URL that will be activated when the hyperlink is clicked.
