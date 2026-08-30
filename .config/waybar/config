@@ -1,0 +1,18 @@
+{
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray","clock"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "tray": {
+	    "spacing": 10,
+    },
+    "clock": {
+	    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	    "format": "{:%F %T}",
+	    "format-alt": "{:%F %T}",
+	    "interval": 1
+    }
+}

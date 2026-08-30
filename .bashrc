@@ -23,12 +23,12 @@ alias ls='eza --color=auto --icons always'
 alias la='eza --color=auto --icons always -la'
 alias ip='ip --color'
 alias ..='cd ..'
+alias gdui='gdu --ignore-dirs /home/anxietysquid/_HDD160,/home/anxietysquid/_HDD250'
 # -o without censoring
 alias wtf='wtf -o'
 # Install bat and bat-extras
 alias cat="bat"
 alias man="batman"
-alias grep="batgrep"
 
 alias ssh-h="kitten ssh anxiety@home -p 45654"
 alias ssh-hh="kitten ssh anxiety@192.168.87.11 -p 45654"
