@@ -20,7 +20,8 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 set $menu exec $term --app-id launcher sway-launcher-desktop
 
 # Always floating
-for_window [class="^AmneziaVPN$"] floating enable, sticky enable, resize set 20
+for_window [class="^AmneziaVPN$"] floating enable, sticky enable
+for_window [app_id="^org.keepassxc.KeePassXC$"] floating enable, sticky enable
 
 ### Output configuration
 #
