@@ -1,18 +1,101 @@
 {
-    "layer": "top",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["tray","clock"],
-    "sway/window": {
-        "max-length": 50
-    },
-    "tray": {
-	    "spacing": 10,
-    },
-    "clock": {
-	    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	    "format": "{:%F %T}",
-	    "format-alt": "{:%F %T}",
-	    "interval": 1
-    }
+	"layer": "top",
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode",
+		"sway/scratchpad"
+	],
+	"modules-center": [
+		"sway/window"
+	],
+	"modules-right": [
+		"cpu",
+		"memory",
+		"temperature",
+		"network",
+		"pulseaudio",
+		"idle_inhibitor",
+		"keyboard-state",
+		"tray",
+		"clock"
+	],
+	"sway/window": {
+		"max-length": 50
+	},
+
+	"cpu": {
+		"format": "{usage}% ",
+		"interval": 1,
+		"tooltip": false
+	},
+	"memory": {
+		"format": "{}% "
+	},
+	"temperature": {
+	// "thermal-zone": 1,
+	"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+	"critical-threshold": 80,
+	"format-critical": "{temperatureC}°C {icon}",
+	"format": "{temperatureC}°C {icon}",
+	"format-icons": ["󰉬", "", "󰉪"]
+	},
+	"network": {
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ipaddr}/{cidr} 󰊗",
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+		"format-linked": "{ifname} (No IP) 󰊗",
+		"format-disconnected": "Disconnected ⚠",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"sway/scratchpad": {
+		"format": "{icon} {count}",
+		"show-empty": false,
+		"format-icons": ["", ""],
+		"tooltip": true,
+		"tooltip-format": "{app}: {title}"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"pulseaudio": {
+		"scroll-step": 1, // %, can be a float
+		"format": "{volume}% {icon} {format_source}",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": "󰅶 {icon} {format_source}",
+		"format-muted": "󰅶 {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "󰂑",
+			"headset": "󰂑",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""]
+		},
+		"on-click": "pavucontrol"
+	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+		"format": "{name} {icon}",
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"tray": {
+		"spacing": 10
+	},
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "{:%F %T}",
+		"format-alt": "{:%F %T}",
+		"interval": 1
+	}
 }

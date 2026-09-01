@@ -23,7 +23,7 @@ alias ls='eza --color=auto --icons always'
 alias la='eza --color=auto --icons always -la'
 alias ip='ip --color'
 alias ..='cd ..'
-alias gdui='gdu --ignore-dirs /home/anxietysquid/_HDD160,/home/anxietysquid/_HDD250'
+alias ncdu='ncdu --exclude /mnt/160 --exclude /mnt/250 --exclude /home'
 # -o without censoring
 alias wtf='wtf -o'
 # Install bat and bat-extras
