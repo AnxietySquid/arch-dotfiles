@@ -2,8 +2,6 @@
 # ~/.bashrc
 #
 
-eval $(starship init bash)
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -37,4 +35,4 @@ PS1='[\u@\h \W]\$ '
 
 export BAT_THEME="Monokai Extended"
 export TERM=kitty
-export EDITOR=nvim
+export EDITOR=vim
