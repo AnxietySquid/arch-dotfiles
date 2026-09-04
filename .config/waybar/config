@@ -1,3 +1,11 @@
+//                        __              
+//  _      ______ ___  __/ /_  ____ ______
+// | | /| / / __ `/ / / / __ \/ __ `/ ___/
+// | |/ |/ / /_/ / /_/ / /_/ / /_/ / /    
+// |__/|__/\__,_/\__, /_.___/\__,_/_/     
+//              /____/                    
+
+// Positions
 {
 	"layer": "top",
 	"modules-left": [
@@ -16,9 +24,13 @@
 		"pulseaudio",
 		"idle_inhibitor",
 		"keyboard-state",
+		"sway/language",
 		"tray",
-		"clock"
+		"clock",
+		"custom/power"
 	],
+
+// Modules config
 	"sway/window": {
 		"max-length": 50
 	},
@@ -28,17 +40,20 @@
 		"interval": 1,
 		"tooltip": false
 	},
+
 	"memory": {
 		"format": "{}% "
 	},
+
 	"temperature": {
-	// "thermal-zone": 1,
-	"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-	"critical-threshold": 80,
-	"format-critical": "{temperatureC}°C {icon}",
-	"format": "{temperatureC}°C {icon}",
-	"format-icons": ["󰉬", "", "󰉪"]
+		// "thermal-zone": 1,
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"critical-threshold": 80,
+		"format-critical": "{temperatureC}°C {icon}",
+		"format": "{temperatureC}°C {icon}",
+		"format-icons": ["󰉬", "", "󰉪"]
 	},
+
 	"network": {
 		"format-wifi": "{essid} ({signalStrength}%) ",
 		"format-ethernet": "{ipaddr}/{cidr} 󰊗",
@@ -47,6 +62,7 @@
 		"format-disconnected": "Disconnected ⚠",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
+
 	"sway/scratchpad": {
 		"format": "{icon} {count}",
 		"show-empty": false,
@@ -54,6 +70,7 @@
 		"tooltip": true,
 		"tooltip-format": "{app}: {title}"
 	},
+
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -61,6 +78,7 @@
 			"deactivated": ""
 		}
 	},
+
 	"pulseaudio": {
 		"scroll-step": 1, // %, can be a float
 		"format": "{volume}% {icon} {format_source}",
@@ -80,6 +98,7 @@
 		},
 		"on-click": "pavucontrol"
 	},
+
 	"keyboard-state": {
 		"numlock": true,
 		"capslock": true,
@@ -89,13 +108,28 @@
 			"unlocked": ""
 		}
 	},
+
 	"tray": {
 		"spacing": 10
 	},
+
 	"clock": {
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format": "{:%F %T}",
 		"format-alt": "{:%F %T}",
 		"interval": 1
+	},
+
+	"custom/power": {
+		"format" : "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "shutdown",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
 	}
 }
