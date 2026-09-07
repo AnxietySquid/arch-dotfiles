@@ -19,7 +19,7 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 set $menu exec $term --app-id launcher sway-launcher-desktop
 
 # Always floating
-for_window [class="^AmneziaVPN$"] floating enable, sticky enable
+for_window [class="^AmneziaVPN$"] floating enable
 for_window [app_id="^org.keepassxc.KeePassXC$"] floating enable, sticky enable
 for_window [app_id="^org.pulseaudio.pavucontrol$"] floating enable, sticky enable,resize set 60 ppt 40 ppt, border pixel 10
 
@@ -28,28 +28,10 @@ for_window [app_id="^org.pulseaudio.pavucontrol$"] floating enable, sticky enabl
 #
 # Default wallpaper
 # output * bg #000000 solid_color
-output DP-1 bg /home/anxietysquid/Pictures/Wallpaper/hubby.jpg fill
-
-output HDMI-A-1 position 1920,0
-output DP-1 position 0,0
+output * bg /home/anxiety/Pictures/Wallpaper/hubby.jpg fill
 
 
-### Idle configuration
-#
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
-
-# Autostart
-exec /usr/lib/polkit-kde-authentication-agent-1
-exec sleep 1 && /usr/bin/AmneziaVPN
-exec dunst
-exec keepassxc
-exec nextcloud
-
-
-### Input configuration
+### input configuration
 #
 input type:keyboard {
     xkb_layout "eu,ru"
@@ -60,6 +42,13 @@ input type:keyboard {
 input type:keyboard {
     repeat_delay 200
     repeat_rate 50
+}
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
 }
 
 
@@ -123,7 +112,6 @@ input type:keyboard {
 
     # Hardcode positions
     # workspace 1 output HDMI-A-1
-    workspace 1 output DP-1
 
     # Switch to workspace
     bindsym --to-code $mod+1 workspace number 1
@@ -247,16 +235,8 @@ bindsym --to-code $mod+r mode "resize"
     bindsym --to-code $mod+Shift+a exec grim -t ppm -g "$(slurp)" - | satty --filename - --copy-command wl-copy
 
 
-#
-# Status Bar:
-#
-
-bar {
-    swaybar_command waybar
-}
-
 
 # Styling
 default_border pixel
 
-include /etc/sway/config.d/*
+include $HOME/.config/sway/config.d/*
