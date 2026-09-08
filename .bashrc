@@ -27,6 +27,7 @@ alias wtf='wtf -o'
 # Install bat and bat-extras
 alias cat="bat"
 alias man="batman"
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 alias ssh-h="kitten ssh anxiety@home -p 45654"
 alias ssh-hh="kitten ssh anxiety@192.168.87.11 -p 45654"
